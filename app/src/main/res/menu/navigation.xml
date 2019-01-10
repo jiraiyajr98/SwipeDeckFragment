@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_action_home"
+        android:title="" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_action_search"
+        android:title="" />
+
+    <item
+        android:id="@+id/achivements"
+        android:icon="@drawable/ic_action_assignment"
+        android:title="" />
+
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/ic_action_message"
+        android:title="" />
+
+
+    <item
+        android:id="@+id/hori_dots"
+        android:icon="@drawable/ic_action_hori_dots"
+        android:title="" />
+
+</menu>
