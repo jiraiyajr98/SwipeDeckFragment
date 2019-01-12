@@ -2,11 +2,12 @@ package com.intern.ankan.internui;
 
 public class GetterSetter {
     String title;
-    int progress;
+    int image;
 
-    public GetterSetter(String title, int progress) {
+
+    public GetterSetter(String title, int image) {
         this.title = title;
-        this.progress = progress;
+        this.image = image;
     }
 
 
@@ -14,7 +15,7 @@ public class GetterSetter {
         return title;
     }
 
-    public int getProgress() {
-        return progress;
+    public int getImage() {
+        return image;
     }
 }

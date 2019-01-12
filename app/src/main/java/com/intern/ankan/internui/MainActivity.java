@@ -1,5 +1,12 @@
 package com.intern.ankan.internui;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,13 +21,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    Adapter adapter;
+
+    ViewPagerAdapter pagerAdapter;
 
     List<GetterSetter> list = new ArrayList<>();
 
     private ViewPager mPager ;
-
-    private CardStackAdapter mAdapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +44,22 @@ public class MainActivity extends AppCompatActivity {
 
         mPager = (ViewPager) findViewById(R.id.viewpager);
 
-        mAdapter = new CardStackAdapter(getSupportFragmentManager());
+        addData();
+        pagerAdapter = new ViewPagerAdapter(list,MainActivity.this);
+        mPager.setOffscreenPageLimit(list.size());
+
 
         mPager.setPageTransformer(true, new CardStackTransformer());
 
-        mPager.setOffscreenPageLimit(5);
+        mPager.setAdapter(pagerAdapter);
+    }
 
-        mPager.setAdapter(mAdapter);
+
+    void addData(){
+
+        list.add(new GetterSetter("Rima",R.drawable.image1));
+        list.add(new GetterSetter("Neha",R.drawable.img2));
+        list.add(new GetterSetter("Sara",R.drawable.img3));
 
     }
 
@@ -65,17 +80,5 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-    }
-
-    void addData(){
-
-        list.add(new GetterSetter("Business Management",30));
-        list.add(new GetterSetter("IT & Cloud Computing",80));
-        list.add(new GetterSetter("Learn How To Play Guitar",50));
-        list.add(new GetterSetter("Basics of Baking Cakes",20));
-        list.add(new GetterSetter("Modern Meditation",50));
-        list.add(new GetterSetter("Project Management",90));
-
-        adapter.notifyItemRangeInserted(0,list.size());
     }
 }
